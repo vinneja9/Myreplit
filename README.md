@@ -12,6 +12,7 @@
 <img src="./img/op96es9026wy.png" alt="what i do" />
 
 ## Features
+수업중 생겨나는 자료들을 보관하기위해 만들었습니다.
 
 <h2>폴더 설명</h2>
 <p>book 폴더에는 실습했던 book명령어들이 들어있습니다.</p>
