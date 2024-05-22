@@ -1,0 +1,7 @@
+#위치인수 $1에 위치를 받고 해당위치에 폴더 파일 위치를 출력하는 프로그램
+where="$1"
+line=$(ls -l '"$1"' | grep ^- | wc -l)
+folder=$(ls -l $where | grep ^d | wc -l )
+echo 파일 "$line" 개
+echo "폴더 "$folder" 개"
+echo "위치 "$where" 입니다"
