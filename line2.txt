@@ -1,1 +1,0 @@
-cat: non.txt: No such file or directory
