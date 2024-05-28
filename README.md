@@ -116,3 +116,7 @@
 
 ## *What I want*
 <img src="./img/2637194552532A800D.jpeg" alt="what i want" />
+
+## *내 자식*
+- [valid-date.sh](./valid-date.sh) <br>
+윤년을 계산해서 실제로 존재하는 날짜인지 알려줌
