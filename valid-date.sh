@@ -30,7 +30,7 @@ esac
 #윤년 계산
 #윤년이면 jun=1 아니면 jun=0
 if [ $((year % 4)) -eq 0 ]
-    then
+	then
 	if [ $((year % 100)) -ne 0 ] || [ $((year % 400)) -eq 0 ]
         then
 		jun=1
@@ -45,7 +45,7 @@ fi
 #31일 30일 29일 28일 모두 구비완
 case $month in
 	Jan|Mar|May|Jul|Aug|Oct|Dec) 
-		if [ $day -lt 31 ]
+		if [ $day -le 31 ] && [ $day -ge 1 ]
 			then
 			echo $month $day $year
 		else
@@ -56,7 +56,7 @@ case $month in
 	#jun을 비교하여 jun=1이면 윤년으로 29일 계산
 		if [ $jun -eq 1 ] 
 			then
-			if [ $day -lt 29 ]
+			if [ $day -le 29 ] && [ $day -ge 1 ]
 				then
 				echo $month $day $year
 			else
@@ -64,7 +64,7 @@ case $month in
 			fi
 	#아니면 즉 jun=0이면 윤년이 아님으로 28일 계산
 		else
-			if [ $day -lt 28 ]
+			if [ $day -le 28 ] && [ $day -ge 1 ]
 				then
 				echo $month $day $year
 			else
@@ -72,8 +72,8 @@ case $month in
 			fi
 		fi;;
 	
-	Apr|Jun|Sep|Nov) month="Mar" 
-		if [ $day -lt 30 ]
+	Apr|Jun|Sep|Nov) 
+		if [ $day -le 30 ] && [ $day -ge 1 ]
 			then
 			echo $month $day $year
 		else
