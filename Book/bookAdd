@@ -1,4 +1,0 @@
-name="$1"
-lastname="$2"
-number="$3"
-echo ""$1" "$2"	"$3"" >> book

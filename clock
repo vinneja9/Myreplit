@@ -1,17 +1,18 @@
+user=$1
+now=$(who)
 
-time=$1
-if [ $time -gt 0 ] $$ [ $time -le 9 ]
-	then 
-	echo 굿모닝
-	exit 0
-elif [ $time -gt 9 ] $$ [ $time -le 17 ]
-	then 
-	echo  굿애프터눈
-	exit 0
-elif [ $time -gt 17 ] $$ [ $time -le 24 ]
-	then 
-	echo  굿이브닝
-	exit 0
-else
-	exit 1
-fi
+if [ $# -ne 1 ]
+then 
+  echo 인수가 1개가 아님
+  exit 2
+  fi
+
+while [ -z $user ]
+do 
+  if [ $now -eq $user ]
+	then
+	echo $user 로그인함
+	  break
+	  fi
+  sleep 60
+done

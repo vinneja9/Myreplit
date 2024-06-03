@@ -1,0 +1,46 @@
+name=$1
+number=$2
+areaNumber=$(echo $number | cut -c1-2)
+
+#인수 확인
+if [ $# -ne 2 ]
+then 
+	echo 인수가 2개가 아닙니다
+	exit 1
+fi
+
+#형태 확인
+if [[ ! $number =~ ^[0-9]{2}-[0-9]{4}-[0-9]{4}$ ]];
+then
+	if [ ${#number} -eq 10 ]
+	then
+		number=$(echo $number | sed 's/^\([0-9]\{2\}\)\([0-9]\{4\}\)\([0-9]\{4\}\)$/\1-\2-\3/')
+	else
+		echo 숫자로 이뤄져있지 않거나 10자리가 아닙니다
+		exit 1
+	fi
+fi
+
+#book에 있는지 확인
+if grep -q "$name $number" book 
+then 
+	echo 동일한 데이터가 book에 있습니다
+	grep "$name $number" book 
+#지역번호 확인
+else
+	case $areaNumber in
+		01)
+			echo $name $number 대구 >> book ;;
+		02)
+			echo $name $number 서울 >> book ;;
+		03)
+			echo $name $number 인천 >> book ;;
+		04)
+			echo $name $number 부산 >> book ;;
+		05)
+			echo $name $number 경기 >> book ;;	
+		*)
+			echo $name $number >> book ;;
+	esac
+	sort -o book book
+fi
